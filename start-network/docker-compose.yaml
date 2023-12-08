@@ -1,0 +1,40 @@
+---
+version: '3.8'
+
+services:
+  start-node:
+    image: start-node-besu:1.0
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    container_name: start-node
+    env_file:
+      - '.env'
+    volumes:
+      - ../networkFiles/:/home/besu-23.10.1/Permisssioned-Network/networkFiles
+    ports:
+      - ${BESU_PORT}:${BESU_PORT}
+      - ${BESU_METRICS_PORT}:${BESU_METRICS_PORT}
+      - ${BESU_P2P_PORT}:${BESU_P2P_PORT}
+    networks:
+      - default
+  
+  validator-node:
+    image: validator-node-besu:1.0
+    build:
+      context: ../
+      dockerfile: Dockerfile-dev
+    container_name: validator-node
+    env_file:
+      - '.env'
+    ports:
+      - ${BESU_PORT}:${BESU_PORT}
+      - ${BESU_METRICS_PORT}:${BESU_METRICS_PORT}
+      - ${BESU_P2P_PORT}:${BESU_P2P_PORT}
+    networks:
+      - default
+
+networks:
+  default:
+    name: besu-network
+    external: true
