@@ -91,7 +91,7 @@ docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"a
 > [!IMPORTANT]
 > <sup>Na maquina do node 2</sup>
 ```
-docker exec -it start-node curl -X POST --data '{"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}' http://127.0.0.1:8545 | jq  
+docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}' http://127.0.0.1:8545 | jq  
 ```
 ## Add peer do Node-3
 > [!IMPORTANT]
@@ -103,7 +103,7 @@ docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"a
 > [!IMPORTANT]
 > <sup>Na maquina do node 3</sup>
 ```
-docker exec -it start-node curl -X POST --data '{"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}' http://127.0.0.1:8545 | jq
+docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}' http://127.0.0.1:8545 | jq
 ```
 ## Add peer do Node-4
 > [!IMPORTANT]
