@@ -88,7 +88,7 @@ cp /home/besu-23.10.1/Permisssioned-Network/networkFiles/keys/permissions_config
 
 echo "Exportação de chaves concluída."
 
-# Subir Validator-BootNode da rede Besu
+# Subir Start-Node da rede Besu
 
 cd /home/besu-23.10.1/Permisssioned-Network/Node-1/
 
