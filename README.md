@@ -81,43 +81,51 @@ docker-compose up -d validator-node
 ```
 docker exec -it start-node curl -X POST --data '{"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}' http://127.0.0.1:8545 | jq  
 ```
-## Cole no comando cURL e Adicione nós como peers 
+## Add peer do Node-2 
 > [!IMPORTANT]
 > <sup>Na maquina do node 2</sup>
 ```
-docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode2>"],"id":1}' http://127.0.0.1:8545 | jq 
+docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode1>"],"id":1}' http://127.0.0.1:8545 | jq 
 ```
-## Cole no comando cURL e Adicione nós como peers 
+## Copiar o enode do Node-2 
+> [!IMPORTANT]
+> <sup>Na maquina do node 2</sup>
+```
+docker exec -it start-node curl -X POST --data '{"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}' http://127.0.0.1:8545 | jq  
+```
+## Add peer do Node-3
 > [!IMPORTANT]
 > <sup>Na maquina do node 3</sup>
 ```
-docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode3>"],"id":1}' http://127.0.0.1:8545 | jq 
+docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode2>"],"id":1}' http://127.0.0.1:8545 | jq 
 ```
-## Cole no comando cURL e Adicione nós como peers 
+## Copiar o enode do Node-3
+> [!IMPORTANT]
+> <sup>Na maquina do node 3</sup>
+```
+docker exec -it start-node curl -X POST --data '{"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}' http://127.0.0.1:8545 | jq
+```
+## Add peer do Node-4
 > [!IMPORTANT]
 > <sup>Na maquina do node 4</sup>
 ```
-docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode4>"],"id":1}' http://127.0.0.1:8545 | jq 
+docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode3>"],"id":1}' http://127.0.0.1:8545 | jq 
 ```
 ## Verificar a contagem de peers
-## Cole no comando cURL e Adicione nós como peers 
+## Check peer count
 > [!IMPORTANT]
-> <sup>Na maquina do start-node</sup>
+> <sup>Em qualquer nó</sup>
 ```
 docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545 | jq 
 ```
-# Limpar a rede 
+# Derrubar a rede 
+## Down start-node
 > [!IMPORTANT]
 > <sup>Na maquina do tipo start-node</sup>
 ```
 docker container stop start-node
 ```
-> [!CAUTION]
-> <sup>O comando a seguir irá excluir todas as imagens e containers que não estiverem em uso, use com cautela</sup>
-```
-docker system prune --all --force --volumes
-```
-# Limpar a rede 
+## Down validators
 > [!IMPORTANT]
 > <sup>Nas maquinas do tipo validator-node</sup>
 ```
