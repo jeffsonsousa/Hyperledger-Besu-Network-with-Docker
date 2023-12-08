@@ -59,10 +59,10 @@ bash copy-keys.sh
 ```
 # Copy init files of dir networkFiles-staging 
 > [!WARNING]
-> NÃO ESQUEÇA DE ALTERAR O IP DE CADA HOST NOS ARQUIVOS .env, .bashrc e Dockerfile-dev[line 27-28]
+> <sup>NÃO ESQUEÇA DE ALTERAR O IP DE CADA HOST NOS ARQUIVOS .env, .bashrc e Dockerfile-dev[line 27-28]</sup>
 
 > [!IMPORTANT]
-> (Repetir os passos a seguir para os 3 nós)
+> <sup>Repetir os passos a seguir para os 3 nós</sup>
 # Build Validator-Node
 
 ## 1. Subir imagem local na nova maquina
@@ -77,54 +77,54 @@ docker-compose up -d validator-node
 ```
 ## Copiar o enode do Start Node 
 > [!IMPORTANT]
-> Na maquina do start-node
+> <sup>Na maquina do start-node</sup>
 ```
 docker exec -it start-node curl -X POST --data '{"jsonrpc":"2.0","method":"net_enode","params":[],"id":1}' http://127.0.0.1:8545 | jq  
 ```
 ## Cole no comando cURL e Adicione nós como peers 
 > [!IMPORTANT]
-> Na maquina do node 2
+> <sup>Na maquina do node 2</sup>
 ```
 docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode2>"],"id":1}' http://127.0.0.1:8545 | jq 
 ```
 ## Cole no comando cURL e Adicione nós como peers 
 > [!IMPORTANT]
-> Na maquina do node 3
+> <sup>Na maquina do node 3</sup>
 ```
 docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode3>"],"id":1}' http://127.0.0.1:8545 | jq 
 ```
 ## Cole no comando cURL e Adicione nós como peers 
 > [!IMPORTANT]
-> Na maquina do node 4
+> <sup>Na maquina do node 4</sup>
 ```
 docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"admin_addPeer","params":["<EnodeNode4>"],"id":1}' http://127.0.0.1:8545 | jq 
 ```
 ## Verificar a contagem de peers
 ## Cole no comando cURL e Adicione nós como peers 
 > [!IMPORTANT]
-> Na maquina do start-node
+> <sup>Na maquina do start-node</sup>
 ```
 docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545 | jq 
 ```
 # Limpar a rede 
 > [!IMPORTANT]
-> Na maquina do tipo start-node
+> <sup>Na maquina do tipo start-node</sup>
 ```
 docker container stop start-node
 ```
 > [!CAUTION]
-> O comando a seguir irá excluir todas as imagens e containers que não estiverem em uso, use com cautela
+> <sup>O comando a seguir irá excluir todas as imagens e containers que não estiverem em uso, use com cautela</sup>
 ```
 docker system prune --all --force --volumes
 ```
 # Limpar a rede 
 > [!IMPORTANT]
-> Nas maquinas do tipo validator-node
+> <sup>Nas maquinas do tipo validator-node</sup>
 ```
 docker container stop start-bootnode
 ```
 > [!CAUTION]
-> O comando a seguir irá excluir todas as imagens e containers que não estiverem em uso, use com cautela
+> <sup>O comando a seguir irá excluir todas as imagens e containers que não estiverem em uso, use com cautela</sup>
 ```
 docker system prune --all --force --volumes
 ```
