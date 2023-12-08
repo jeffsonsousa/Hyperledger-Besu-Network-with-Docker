@@ -40,7 +40,7 @@ Para verificar a versão instalada:
 docker-compose version
 ```
 > [!NOTE]
-> <sup>Este repositório foi baseado na doc oficial da Besu [GitHub Pages](https://besu.hyperledger.org/private-networks/tutorials/permissioning)</sup>
+> <sup>Este tutorial foi baseado na doc oficial da Besu [Documentação Hyperledger Besu](https://besu.hyperledger.org/private-networks/tutorials/permissioning)</sup>
 
 # Build Start-Node
 ## 1. Subir imagem local para primeiro nó da rede
