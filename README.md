@@ -59,7 +59,7 @@ bash copy-keys.sh
 ```
 # Copy init files of dir networkFiles-staging 
 > [!WARNING]
-> <sup>NÃO ESQUEÇA DE ALTERAR O IP DE CADA HOST NOS ARQUIVOS .env, .bashrc e Dockerfile-dev[line 27-28]</sup>
+> <sup>Não esqueça de alterar o ip de cada HOST nos arquivos .env, .bashrc e Dockerfile-dev[line 27-28]</sup>
 
 > [!IMPORTANT]
 > <sup>Repetir os passos a seguir para os 3 nós</sup>
