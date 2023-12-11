@@ -129,7 +129,7 @@ docker container stop start-node
 > [!IMPORTANT]
 > <sup>Nas maquinas do tipo validator-node</sup>
 ```
-docker container stop start-bootnode
+docker container stop validator-node
 ```
 > [!CAUTION]
 > <sup>O comando a seguir irá excluir todas as imagens e containers que não estiverem em uso, use com cautela</sup>

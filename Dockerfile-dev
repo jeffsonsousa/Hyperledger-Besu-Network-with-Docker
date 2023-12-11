@@ -13,7 +13,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update -y && apt upgrade -y && apt install vim -y && apt install curl -y  && apt install jq -y 
 COPY init-network-dev.sh /home/
 COPY .bashrc /home/
-COPY networkFiles/genesis.json /home/genesis.json
+COPY networkFiles-staging/genesis.json /home/genesis.json
 RUN cat < /home/.bashrc >> ~/.bashrc
 
 # Install Besu Network Dependencies
