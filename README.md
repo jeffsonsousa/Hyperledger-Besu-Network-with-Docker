@@ -117,6 +117,7 @@ docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"a
 > <sup>Em qualquer nó</sup>
 ```
 docker exec -it validator-node curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545 | jq 
+docker exec -it start-node curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' localhost:8545 | jq 
 ```
 # Derrubar a rede 
 ## Down start-node
